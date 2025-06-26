@@ -1,14 +1,17 @@
 {
   "dotfiles": {
     "_vimrc": {
-      "source": "./_vimrc",
+      "type": "file",
+      "source": "./.files/.vimrc",
       "destination": "$HOME/.vimrc"
     },
     ".tmux.conf": {
-      "source": "./.tmux.conf",
+      "type": "file",
+      "source": "./.files/.tmux.conf",
       "destination": "$HOME/.tmux.conf"
     },
     ".bashfuncs": {
+      "type": "directory",
       "source": "./.bashfuncs",
       "destination": "$HOME/.bashfuncs"
     }

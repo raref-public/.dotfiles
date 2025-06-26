@@ -43,6 +43,7 @@ done
 if [ "$LEAN_MODE" = true ]; then
     echo "Running in lean mode..."
     # Add lean mode code here
+    cd "$(dirname "$0")" && python3 -m dotfiles_manager
 fi
 
 if [ "$BULK_MODE" = true ]; then
