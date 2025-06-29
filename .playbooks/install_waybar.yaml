@@ -1,0 +1,14 @@
+# ansible-playbook -i localhost, ./install_waybar.yaml --connection=local -K
+---
+- name: Install waybar and dependencies
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Ensure waybar and font dependencies are installed (Debian/Ubuntu)
+      apt:
+        name:
+          - fonts-noto-color-emoji
+          - fonts-font-awesome
+          - waybar
+        state: present
+      when: ansible_os_family == "Debian"
