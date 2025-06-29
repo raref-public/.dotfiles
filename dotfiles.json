@@ -18,17 +18,17 @@
     "bash_profile": {
       "type": "file",
       "source": "./.files/.bash_profile",
-      "destination": "/home/uberuntu/.bash_profile"
+      "destination": "$HOME/.bash_profile"
     },
     "sway_conf": {
       "type": "file",
       "source": "./.files/config",
-      "destination": "/home/uberuntu/.config/sway/config"
+      "destination": "$HOME/.config/sway/config"
     },
     "foot_conf": {
       "type": "file",
       "source": "./.files/foot.ini",
-      "destination": "/home/uberuntu/.config/foot/foot.ini"
+      "destination": "$HOME/.config/foot/foot.ini"
     }
   }
 }

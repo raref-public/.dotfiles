@@ -9,6 +9,7 @@ show_help() {
     echo "  -a, --add 'cfg_fileobj_name' ./source \$HOME/destination."
     echo "                            Add a config file to be managed by dotfiles and exit."
     echo "  -r, --run       Run dotfiles."
+    echo "  -n, --normalize       Normalize dotfiles (swap absolute path for \$HOME/path/to/file)."
 }
 
 CURRENT_DIR=$(pwd)
@@ -39,6 +40,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         -r|--run)
             python3 -m dotfiles_manager
+            exit 0
+            ;;
+        -n|--normalize)
+            python3 -m dotfiles_manager.normalize_paths
             exit 0
             ;;
         *)
