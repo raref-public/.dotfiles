@@ -29,6 +29,11 @@
       "type": "file",
       "source": "./.files/foot.ini",
       "destination": "$HOME/.config/foot/foot.ini"
+    },
+    "vifm_conf": {
+      "type": "file",
+      "source": "./.files/vifmrc",
+      "destination": "$HOME/.vifm/vifmrc"
     }
   }
 }
