@@ -18,9 +18,9 @@ def load_or_create_config():
     # Create default config
     config = {
         "dotfiles": {
-            "_vimrc": {"source": "../.files/.vimrc", "destination": "$HOME/.vimrc"},
-            ".tmux.conf": {"source": "../.files/.tmux.conf", "destination": "$HOME/.tmux.conf"},
-            ".bashfuncs": {"source": "../.bashfuncs", "destination": "$HOME/.bashfuncs"}
+            "_vimrc": {"type": "file", "source": "./.files/.vimrc", "destination": "$HOME/.vimrc"},
+            ".tmux.conf": {"type": "file", "source": "./.files/.tmux.conf", "destination": "$HOME/.tmux.conf"},
+            ".bashfuncs": {"type": "directory", "source": "./.bashfuncs", "destination": "$HOME/.bashfuncs"}
         }
     }
     

@@ -15,15 +15,20 @@
       "source": "./.bashfuncs",
       "destination": "$HOME/.bashfuncs"
     },
-    ".bash_profile": {
+    "bash_profile": {
       "type": "file",
       "source": "./.files/.bash_profile",
-      "destination": "$HOME/.bash_profile"
+      "destination": "/home/uberuntu/.bash_profile"
     },
-    "dotfiles_manager": {
-      "type": "directory",
-      "source": "./dotfiles_manager/",
-      "destination": "$HOME/dofiles_manager"
+    "sway_conf": {
+      "type": "file",
+      "source": "./.files/config",
+      "destination": "/home/uberuntu/.config/sway/config"
+    },
+    "foot_conf": {
+      "type": "file",
+      "source": "./.files/foot.ini",
+      "destination": "/home/uberuntu/.config/foot/foot.ini"
     }
   }
 }
