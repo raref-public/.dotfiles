@@ -1,0 +1,40 @@
+#!/usr/bin/bash
+
+# Git commit helper script
+
+# Assign all arguments to message variable
+message="$*"
+
+# Check if no message is supplied
+if [ -z "$message" ]; then
+    echo "Error: No commit message provided"
+    echo "Usage: $0 <commit message>"
+    echo "Example: $0 Fix bug in user authentication"
+    exit 1
+fi
+
+# Show current git status
+echo "Current git status:"
+git status --short
+
+# Query user if they want to continue
+echo
+read -p "Do you want to continue with commit and push? (y/N): " -n 1 -r
+echo
+
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo "Operation cancelled."
+    exit 0
+fi
+
+# Add all files, commit with message, and push
+echo "Adding all files..."
+git add .
+
+echo "Committing with message: '$message'"
+git commit -m "$message"
+
+echo "Pushing to remote repository..."
+git push
+
+echo "Done!"

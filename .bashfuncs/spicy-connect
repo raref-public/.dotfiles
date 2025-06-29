@@ -1,0 +1,27 @@
+#!/usr/bin/bash
+
+# ssh tunnel to loopback then connect to spice
+user=$1
+ipaddress=$2
+port=$3
+
+# Check if all required parameters are provided
+if [ -z "$user" ] || [ -z "$ipaddress" ] || [ -z "$port" ]; then
+    echo "Usage: $0 <user> <ipaddress> <port>"
+    echo "Example: $0 ryan 192.168.0.210 5900"
+    exit 1
+fi
+
+ssh -4 -L $port:127.0.0.1:$port \
+	-N \
+	-f \
+	$user@$ipaddress \
+	sleep 10
+ssh_pid=$!
+
+remmina -c spice://127.0.0.1:$port &
+remmina_pid=$!
+
+printf "Connection initiated:\n\t ssh_pid:$ssh_pid \n\t remmina_pid:$remmina_pid \n"
+printf "All ssh sessions:\n\t"
+ss -tulpn | grep ssh

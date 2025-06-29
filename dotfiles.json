@@ -14,6 +14,16 @@
       "type": "directory",
       "source": "./.bashfuncs",
       "destination": "$HOME/.bashfuncs"
+    },
+    ".bash_profile": {
+      "type": "file",
+      "source": "./.files/.bash_profile",
+      "destination": "$HOME/.bash_profile"
+    },
+    "dotfiles_manager": {
+      "type": "directory",
+      "source": "./dotfiles_manager/",
+      "destination": "$HOME/dofiles_manager"
     }
   }
 }

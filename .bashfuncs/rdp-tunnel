@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+# ssh tunnel to loopback then connect to spice
+IPv4Address="$1"
+
+
+ssh -4 -L 3389:$IPv4Address:3389 \
+	-N \
+	-f \
+	ryan@PacketPunisher.com \
+	sleep 10
+ssh_pid=$!
+
+remmina -c rdp://PacketPunisher\\Fkafka@127.0.0.1:3389 &
+
+
+remmina_pid=$!
+
+printf "Connection initiated:\n\t ssh_pid:$ssh_pid \n\t remmina_pid:$remmina_pid \n"
+printf "All ssh sessions:\n\t"
+ss -tulpn | grep ssh

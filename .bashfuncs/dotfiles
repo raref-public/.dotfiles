@@ -1,0 +1,51 @@
+#!/usr/bin/bash
+
+# run this script to configure dotfiles!
+show_help() {
+    echo "Usage: $0 [OPTIONS]"
+    echo "Options:"
+    echo "  -h, --help      Show this help message and exit."
+    echo "  -l, --list      List dotfiles and exit."
+    echo "  -a, --add 'cfg_fileobj_name' ./source \$HOME/destination."
+    echo "                            Add a config file to be managed by dotfiles and exit."
+    echo "  -r, --run       Run dotfiles."
+}
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        -l|--list)
+            python3 -m dotfiles_manager list
+            exit 0
+            ;;
+        -a|--add)
+            shift
+            config_name="$1"
+            shift
+            source="$1"
+            shift
+            destination="$1"
+            python3 -m dotfiles_manager add "$config_name" "$source" "$destination"
+            exit 0
+            ;;
+        -r|--run)
+            echo "Locating dir: $(dirname "$0")/../dotfiles_manager"
+            if [ ! -d "dotfiles_manager" ]; then
+                cd "$(dirname "$0")/.." && python3 -m dotfiles_manager
+            else
+                python3 -m dotfiles_manager
+            fi
+
+
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1"
+            show_help
+            exit 1
+            ;;
+    esac
+done

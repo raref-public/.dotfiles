@@ -1,0 +1,27 @@
+#!/usr/bin/bash
+
+# Connect to lab server on port forward 5901 & 5910 to loopback
+
+# Check if arguments are provided
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 <user> <ip_address>"
+    echo "Example: $0 ryan 192.168.0.210"
+    exit 1
+fi
+
+USER="$1"
+IP="$2"
+
+# get domain spice port
+ssh "$USER@$IP" 'TERM=linux; bash -l' <<EOF
+printf "executing \$0 for \$(whoami) on \$(hostname): \n"
+for domain in \$(virsh list --name); do
+	virsh send-key \$domain --holdtime 1000 KEY_LEFTSHIFT
+	port=\$(virsh dumpxml \$domain \
+		| grep "<graphics type='spice'" \
+		| sed -n "s/.*port='\([0-9]*\)'.*/\1/p")
+	printf "\tdomain : \$domain - port : \$port \n"
+done
+EOF
+# print ssh connections
+ss -tulpn | grep ssh

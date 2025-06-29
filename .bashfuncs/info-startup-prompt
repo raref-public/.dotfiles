@@ -1,0 +1,12 @@
+#!/bin/bash
+#Third line of each file is a description of commandlet
+# Show information about custom script in ~/.bash_funcs/*
+FILES=~/.bashfuncs/*
+printf "\ncustom scripts @ $FILES\n\n"
+for f in $FILES; do
+	if [[ -f "$f" ]]; then
+		description=$(sed '3q;d' $f)
+		printf "$description: \n\t$f\n\n"
+	fi
+done
+
