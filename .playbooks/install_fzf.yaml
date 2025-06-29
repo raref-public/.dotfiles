@@ -1,0 +1,11 @@
+# ansible-playbook -i localhost, ./install_fzf.yaml --connection=local -K
+---
+- name: Install fzf
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Ensure fzf is installed (Debian/Ubuntu)
+      apt:
+        name: fzf
+        state: present
+      when: ansible_os_family == "Debian"
