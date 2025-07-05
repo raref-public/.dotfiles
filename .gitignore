@@ -1,1 +1,3 @@
 dotfiles_manager/__pycache__/*
+.vscode/
+.files/LABENV.kdbx
