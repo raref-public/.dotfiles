@@ -26,6 +26,11 @@ include /etc/sway/config-vars.d/*
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+# custom sway output configuration
+output eDP-1 pos 0 1080 res 1920x1080
+output HDMI-A-2 pos 0 0 res 2560x1080
+
 #
 # Example configuration:
 #

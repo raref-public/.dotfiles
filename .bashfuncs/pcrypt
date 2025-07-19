@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+# generate hashed pw
+
+read -sp "Enter your password: " USER_PASSWORD
+echo # This is to print a newline after the password input
+
+SALT=$(openssl rand -base64 6); \
+ENCRYPTED_PASSWORD=$(echo -n "$USER_PASSWORD" | openssl passwd -6 -stdin -salt $SALT); \
+echo "Generated Salt: $SALT"; \
+echo "Encrypted Password: $ENCRYPTED_PASSWORD"
+wl-copy "$ENCRYPTED_PASSWORD"
