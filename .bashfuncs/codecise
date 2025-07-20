@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+# llm wrapping tool, must have llm configured
+# llm '$input - if any code is returned from this prompt,
+# adhere to the following syntax:
+# <one line descritpion> 
+# <extremely concise example> 
+# <further explanation, no more than a few sentences>'    --save
+
+# Assign all arguments to message variable
+
+message="$*"
+
+llm -t codecise "${message}" | fzf | wl-copy

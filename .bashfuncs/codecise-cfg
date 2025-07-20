@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+# configure the codecise llm parameter. This is a llm wrapping tool, must have llm configured
+ 
+llm --save codecise <<'EOF'
+$input - if any code is returned from this prompt, adhere to the following syntax:
+<one line descritpion> 
+--- code ---
+<extremely concise code example, with no illegal characters, no comments, no imports, no docstrings> 
+--- code ---
+
+<further explanation, no more than a few sentences>
+EOF
