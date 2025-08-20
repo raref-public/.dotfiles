@@ -1,3 +1,5 @@
 # TODO.txt defining pending scripts
-./sec/quick-scan
-./sec/big-scan
+./.sec/vpn - connect to vpn
+./.sec/quickmap - nmap small scan
+./.sec/bigmap - nmap big scan
+./files/newfile - create executable file

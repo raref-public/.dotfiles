@@ -43,7 +43,12 @@
     "blogin": {
       "type": "file",
       "source": "./.zshfuncs/blogin",
-      "destination": "/home/wenbo/.zshfuncs/blogin"
+      "destination": "$HOME/.zshfuncs/blogin"
+    },
+    "sec_scripts": {
+      "type": "directory",
+      "source": "./.sec",
+      "destination": "$HOME/.sec"
     }
   }
 }

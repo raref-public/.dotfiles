@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+target=$1
+# quick nmap scan
+nmap -F $target

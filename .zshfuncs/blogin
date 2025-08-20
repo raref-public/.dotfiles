@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+# load bash shell and custom scripts, with git@github.com:raref-public/.dotfiles.git
+bash --login

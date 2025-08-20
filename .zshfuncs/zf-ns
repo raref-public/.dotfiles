@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+box="${1}"
+
+sudo masscan -p1-65535 $box --rate=1000 -e tun0 > ports
+ports=$(cat ports | awk -F " " '{print $4}' | awk -F "/" '{print $1}' |
+sort -n | tr '\n' ',' | sed 's/,$//')
+nmap -Pn -sV -sC -p$ports $box

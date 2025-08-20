@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Path to the file containing the URLs
+file="${1}"
+
+# Loop through each line in the file
+while IFS= read -r url; do
+  # Use curl to fetch the URL
+  curl "$url"
+done < "$file"
+

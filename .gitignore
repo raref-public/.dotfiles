@@ -3,3 +3,4 @@ dotfiles_manager/__pycache__/*
 .files/LABENV.kdbx
 .bashfuncs/ssesxi
 .bashfuncs/sftp-esxi
+*.swp

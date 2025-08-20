@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+# connect to the vpn
+sudo openvpn /home/wenbo/Downloads/lab_LoliHamilton.ovpn

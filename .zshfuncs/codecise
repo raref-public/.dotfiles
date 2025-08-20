@@ -1,0 +1,4 @@
+#!/usr/bin/zsh
+
+# run codecise prompt
+llm -m claude-4-sonnet -t codecise "$*"
