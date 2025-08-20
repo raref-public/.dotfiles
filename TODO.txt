@@ -1,0 +1,3 @@
+# TODO.txt defining pending scripts
+./sec/quick-scan
+./sec/big-scan

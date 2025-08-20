@@ -39,6 +39,11 @@
       "type": "file",
       "source": "./.files/waybar_cfg",
       "destination": "$HOME/.config/waybar/config"
+    },
+    "blogin": {
+      "type": "file",
+      "source": "./.zshfuncs/blogin",
+      "destination": "/home/wenbo/.zshfuncs/blogin"
     }
   }
 }
