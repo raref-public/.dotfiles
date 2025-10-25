@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+# recursively list all files on smb share with current user permissions
+target=$1
+
+if [ -z "$target" ]; then
+    echo "Usage: $0 //server/share"
+    exit 1
+fi
+
+# use smbclient to recursively list files
+# -N for no password (current user permissions)
+# -c for commands to execute
+smbclient "$target" -N -c "recurse ON; ls"
